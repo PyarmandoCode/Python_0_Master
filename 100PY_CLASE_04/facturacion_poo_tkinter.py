@@ -9,6 +9,15 @@ class Producto:
 
     def calcular_total(self):
         return self.precio*self.cantidad
+    
+
+class VentanaSecundaria:
+    def __init__(self,ventana_padre):
+        self.ventana_secundaria=tk.Toplevel(ventana_padre)
+        self.ventana_secundaria.title=("Ventana Secundaria")
+        self.etiqueta=tk.Label(self.ventana_secundaria,text="Widget de la ventana secundaria")
+        self.etiqueta.pack(padx=10,pady=10)
+   
 
 class FacturaApp:
     def __init__(self,ventana):
@@ -40,10 +49,18 @@ class FacturaApp:
         self.lbl_factura=tk.Label(ventana,text="")
         self.lbl_factura.grid(row=5,column=0,columnspan=2,padx=5,pady=5)
 
+        self.btn_secundaria=tk.Button(ventana,text="Ventana2",command=self.abrir_ventana_secundaria)
+        self.btn_secundaria.grid(row=6,column=0,columnspan=2,padx=5,pady=5)
+
     def agregar_producto(self):
         nombre=self.entry_nombre.get()
         precio=float(self.entry_precio.get())
         cantidad=int(self.entry_cantidad.get())
+
+        if precio is None or cantidad is None:
+            messagebox.showerror("Error","El Precio y la cantidad deben ser numeros")
+            return
+        #ValueError
 
         producto=Producto(nombre,precio,cantidad)
         self.productos.append(producto)
@@ -62,6 +79,12 @@ class FacturaApp:
             factura += f"{producto.nombre}:${producto.precio} x {producto.cantidad} = ${producto.calcular_total()}\n"
         factura +="\nTotal a Pagar:$" + str(total)
         self.lbl_factura.config(text=factura)
+
+    def abrir_ventana_secundaria(self):
+        ventana_secundaria=VentanaSecundaria(self.ventana)     
+
+
+
 
 #Crear la ventana principal
 ventana_principal=tk.Tk()
