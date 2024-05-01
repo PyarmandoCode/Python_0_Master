@@ -50,3 +50,22 @@ eliminar_empleado()
 seleccionar_empleados()
 
 conn.close()
+
+"""
+Comandos Necesarios para hacer un CRUD
+(C)CREATE=INSERT
+(R)LEER=SELECT
+(U)ACTUALIZAR=UPDATE
+(D)ELIMINAR=DELETE
+EJEM TABLAS MAESTRAS SISTEMA VENTAS:
+====================================
+-CLIENTES
+-PRODUCTOS
+-PROVEEDORES
+-UNIDAD MEDIDA
+EJEM TABLAS SECUNDARIAS
+==========================
+-CABECERA FACTURA
+-DETALLE FACTURA
+
+"""
