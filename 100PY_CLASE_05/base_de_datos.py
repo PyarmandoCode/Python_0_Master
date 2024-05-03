@@ -16,13 +16,13 @@ c.execute('''CREATE TABLE IF NOT EXISTS empleados
           ''')
 
 # #Insertar Algunos datos
-# c.execute("INSERT INTO empleados (nombre,area) VALUES(?,?)",('Claudia Ramos','Sistemas') )
+c.execute("INSERT INTO empleados (nombre,area) VALUES(?,?)",('Sara Baenz','Marketing') )
 # c.execute("INSERT INTO empleados (nombre,area) VALUES(?,?)",('Oscar Durand','Sistemas') )
 # c.execute("INSERT INTO empleados (nombre,area) VALUES(?,?)",('Miguel Fuentes','RRHH') )
 # c.execute("INSERT INTO empleados (nombre,area) VALUES(?,?)",('Maria Palacios','RRHH') )
 # c.execute("INSERT INTO empleados (nombre,area) VALUES(?,?)",('Guillermo Oliva','Contabilidad') )
 # #Confirmar los cambios
-# conn.commit()
+conn.commit()
 
 #Crear consultas
 #Seleccionar todos los empleados
@@ -46,7 +46,7 @@ def eliminar_empleado():
 
 #cerrar la conexion
 #seleccionar_empleados()
-eliminar_empleado()
+#eliminar_empleado()
 seleccionar_empleados()
 
 conn.close()
