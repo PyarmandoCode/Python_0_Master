@@ -12,12 +12,13 @@
           <div class="card shadow-sm">
             <img src="{{product.picture}}"/>
             <div class="card-body">
+              <p class="card-text">{{product.name}}</p>
               <p class="card-text">{{product.description}}</p>
-              <p class="card-text">Precio($):{{product.price_base}}</p>
+              <p class="card-text"><strong>Precio($)</strong>:{{product.price_base}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a href="{% url 'cart' %}" class="btn btn-primary">View Cart </a> 
+                  <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart </a> 
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
