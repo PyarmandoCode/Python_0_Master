@@ -22,25 +22,27 @@ def detail_product(request,id):
     context ={
         "product":product
     }
+    #Generando la orden de manera interna
+    #Order.objects.create(complete=False)
     template_name="detalles.html"
     return render(request,template_name,context)
 
+
 def add_to_cart(request,product_id):
-    product=get_object_or_404(Products,id=product_id)
-    order,created=Order.objects.get_or_create(complete=False)
-    order_item,created=OrderItem.objects.get_or_create(order=order,product=product)
-    order_item.quantity +=1
-    order_item.save()
+    #Seleccionar cual es el producto que agregaremos al carrito
+    product=Products.objects.get(pk=product_id)
+    #Capturando la ultima orden generada
+    last_order=Order.objects.last()
+    #Anadiendo items generado
+    OrderItem.objects.get_or_create(order=last_order,product=product,quantity=1)
     return redirect('index')
 
 def cart(request):
     template_name="carts.html"
-    #order,created=Order.objects.get_or_create(complete=False)
     order_detail=OrderItem.objects.all()
     context = {
         "detail" :order_detail
     }
-    print(f'este es el contexto {context}')
     return render(request,template_name,context)
 
 

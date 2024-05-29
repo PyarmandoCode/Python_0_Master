@@ -23,7 +23,7 @@ class Order(models.Model):
     complete=models.BooleanField(default=True)
 
     def __str__(self):
-        return f'Order {self.id}'
+        return str(self.id)
     
 class OrderItem(models.Model):
     product=models.ForeignKey(Products,on_delete=models.CASCADE) 
