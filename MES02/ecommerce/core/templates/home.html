@@ -4,11 +4,11 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Bienvenido a Mi Tienda Virtual</h1>
+            <h1 class="fw-light">Bienvenido a Mi Tienda Virtual {{logueado}}</h1>
             <p class="lead text-body-secondary">En esta tienda encontraras una excelente experiencia de Tiscos en Vinil que usa Inteligencia Artificial.</p>
             <p>
               <a href="{% url 'index' %}" class="btn btn-primary my-2">Ir a la Tienda</a>
-              <a href="#" class="btn btn-secondary my-2">Ver un Recorrido</a>
+              <a href="{% url 'logout' %}" class="btn btn-secondary my-2">Cerrar Sesion</a>
             </p>
           </div>
         </div>
